@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Contactos</title>
     <link rel="stylesheet" href="">
-    <link rel="shortcut icon" href="/Awos/icono.ico">
+    <link rel="shortcut icon" href="../icono.ico">
 </head>
 
 <body>
@@ -18,7 +18,6 @@
     <div class="buttons">
         <button id="agregar-contacto">Agregar Contacto</button>
         <button id="generar-pin">Generar PIN</button>
-        <button id="editar-contacto">Editar Contacto</button>
         <a href="/Awos/PHP/registros_residente.php">
             <button id="registros">Registros</button>
         </a>
@@ -34,7 +33,7 @@
 
     if (isset($_POST['cerrar_sesion'])) {
         session_destroy();
-        header("Location: /Awos/HTML/index.html");
+        header("Location: ../index.html");
         exit;
 
     }
@@ -70,9 +69,7 @@
 
     <!-- Agrega imagen de Whatsapp -->
     <div class="buttons">
-        <button id="">Notificacion Paqueteria</button>
-        <button id="">Notificacion de invitado</button>
-        <button id="">Notificacion de delivery</button>
+        <button onclick="enviarWhatsApp()" id="whatsapp-link" class="whatsapp-button">Notificar de entrega</button>
     </div>
     <form method="post" action="">
         <input type="submit" name="cerrar_sesion" value="Cerrar Sesión">
@@ -81,6 +78,16 @@
     <form>
         Buscar contacto <input id="searchTerm" type="text" onkeyup="doSearch()" />
     </form>
+
+    <script>
+        const whatsappLink = document.getElementById('whatsapp-link');
+        function enviarWhatsApp() {
+            var numero = "4492788601";
+            var mensaje = "Buen dia! Le informo que el dia de hoy recibire un paquete/delivery a mi domicilio, le pedire que este atento por favor.";
+            var url = "https://api.whatsapp.com/send?phone=" + numero + "&text=" + encodeURIComponent(mensaje);
+            window.open(url, "_blank");
+        }
+    </script>
 
 </body>
 

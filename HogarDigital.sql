@@ -29,6 +29,8 @@ CREATE TABLE IF NOT EXISTS `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla hogardigital.admin: ~0 rows (aproximadamente)
+INSERT INTO `admin` (`ID`, `Usuario`, `Nombre`, `Contraseña`) VALUES
+	(450, 'Fer', 'Fercho', '123');
 
 -- Volcando estructura para tabla hogardigital.caseta
 CREATE TABLE IF NOT EXISTS `caseta` (
@@ -41,6 +43,8 @@ CREATE TABLE IF NOT EXISTS `caseta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla hogardigital.caseta: ~0 rows (aproximadamente)
+INSERT INTO `caseta` (`IDGuardia`, `Nombre_C`, `Apellido_C`, `Usuario`, `Contraseña`) VALUES
+	('50', 'Pepe', 'Lopez.', 'pepo', '123');
 
 -- Volcando estructura para tabla hogardigital.contactos
 CREATE TABLE IF NOT EXISTS `contactos` (
@@ -48,51 +52,74 @@ CREATE TABLE IF NOT EXISTS `contactos` (
   `Nombre` varchar(45) NOT NULL,
   `Apellido` varchar(45) NOT NULL,
   `Telefono` varchar(45) NOT NULL,
-  `Foto` blob NOT NULL,
+  `Residente_ID` char(4) DEFAULT NULL,
   KEY `PINES_idx` (`PIN`),
-  CONSTRAINT `PINES` FOREIGN KEY (`PIN`) REFERENCES `pines` (`PIN`)
+  KEY `Resiedente_ID` (`Residente_ID`),
+  CONSTRAINT `PINES` FOREIGN KEY (`PIN`) REFERENCES `pines` (`PIN`),
+  CONSTRAINT `Resiedente_ID` FOREIGN KEY (`Residente_ID`) REFERENCES `residente` (`NumCasa`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla hogardigital.contactos: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla hogardigital.contactos: ~5 rows (aproximadamente)
+INSERT INTO `contactos` (`PIN`, `Nombre`, `Apellido`, `Telefono`, `Residente_ID`) VALUES
+	('2202', 'Andy', 'Salas', '4491238754', '1'),
+	('5555', 'ko', 'lolol', '4496587989', '2'),
+	('4448', 'Pamela', 'lope', '499999999', '3'),
+	('5656', 'Martin', 'Salas', '449789787', '4'),
+	('5656', 'Pepe', 'Si', '4497896985', '4');
 
 -- Volcando estructura para tabla hogardigital.pines
 CREATE TABLE IF NOT EXISTS `pines` (
   `PIN` char(4) NOT NULL,
-  `Num.Casa` char(4) NOT NULL,
+  `NumCasa` char(4) NOT NULL,
   `Duracion` datetime NOT NULL,
-  PRIMARY KEY (`PIN`)
+  PRIMARY KEY (`PIN`),
+  KEY `Num.Casa` (`NumCasa`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla hogardigital.pines: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla hogardigital.pines: ~1 rows (aproximadamente)
+INSERT INTO `pines` (`PIN`, `NumCasa`, `Duracion`) VALUES
+	('2202', '1', '0000-00-00 00:00:00'),
+	('4448', '3', '2023-10-19 10:17:02'),
+	('5555', '2', '2023-10-18 10:10:09'),
+	('5656', '4', '2023-10-19 13:56:33');
 
 -- Volcando estructura para tabla hogardigital.registros
 CREATE TABLE IF NOT EXISTS `registros` (
-  `Tipo_T` int(11) NOT NULL,
+  `Tipo_T` varchar(50) NOT NULL DEFAULT '',
   `Cantidad_P` int(11) NOT NULL,
   `Nombre_Contacto` varchar(45) NOT NULL,
   `Acceso` varchar(45) NOT NULL,
   `PIN` char(4) NOT NULL,
   `Hora_Entrada` time DEFAULT NULL,
   `Hora_Salida` time DEFAULT NULL,
-  PRIMARY KEY (`Tipo_T`),
+  `Foto` longblob DEFAULT NULL,
   KEY `PINES_idx` (`PIN`),
   CONSTRAINT `Pin` FOREIGN KEY (`PIN`) REFERENCES `pines` (`PIN`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla hogardigital.registros: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla hogardigital.registros: ~2 rows (aproximadamente)
+INSERT INTO `registros` (`Tipo_T`, `Cantidad_P`, `Nombre_Contacto`, `Acceso`, `PIN`, `Hora_Entrada`, `Hora_Salida`, `Foto`) VALUES
+	('Pie', 2, 'Martin', '', '5656', '18:06:40', '18:06:42', NULL),
+	('Auto', 6, 'Pepe', '', '5656', '19:14:15', '19:14:16', NULL);
 
 -- Volcando estructura para tabla hogardigital.residente
 CREATE TABLE IF NOT EXISTS `residente` (
-  `Num.Casa` char(1) NOT NULL,
+  `NumCasa` char(1) NOT NULL,
   `Nombre_R` varchar(45) NOT NULL,
   `Apellido_R` varchar(45) NOT NULL,
   `Telefono` varchar(45) NOT NULL,
   `Usuario` varchar(45) NOT NULL,
   `Contraseña` varchar(45) NOT NULL,
-  PRIMARY KEY (`Num.Casa`)
+  PRIMARY KEY (`NumCasa`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla hogardigital.residente: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla hogardigital.residente: ~2 rows (aproximadamente)
+INSERT INTO `residente` (`NumCasa`, `Nombre_R`, `Apellido_R`, `Telefono`, `Usuario`, `Contraseña`) VALUES
+	('1', 'Koke', 'Villa', '4491871833', 'pito', '123'),
+	('2', 'vagina', 'peluda', '4497851265', 'vag', '124'),
+	('3', 'Roman', 'Alba', '4495657896', 'pitudo', '456'),
+	('4', 'Johany', 'Carrillo', '4491969363', 'joha', '123'),
+	('5', 'Amy', 'Peralta', '4497851254', 'Chi', '123');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

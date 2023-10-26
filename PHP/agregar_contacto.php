@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar Contacto</title>
-    <link rel="stylesheet" href="/Awos/CSS/agregar_contactos.css">
-    <link rel="shortcut icon" href="/Awos/icono.ico">
+    <link rel="stylesheet" href="../CSS/agregar_contactos.css">
+    <link rel="shortcut icon" href="../icono.ico">
 </head>
 <body>
     <a href="index.html" class="">Regresar</a>

@@ -17,9 +17,9 @@ $sql = "SELECT * FROM caseta WHERE Usuario = '$usuario' AND Contraseña = '$cont
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    header("Location: /Awos/HTML/caceta.html");
+    header("Location: ../HTML/caceta.html");
 } else {
-    echo '<script>alert("Datos erroneos, Vuelva a intentarlo");window.location.href="/Awos/HTML/login_caseta.html";</script>';
+    echo '<script>alert("Datos erroneos, Vuelva a intentarlo");window.location.href="../HTML/login_caseta.html";</script>';
 }
 
 $conn->close();

@@ -19,9 +19,9 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     session_start();
     $_SESSION['Sesion'] = $usuario;
-    header("Location: /Awos/PHP/contactos_residente.php");
+    header("Location: ../PHP/contactos_residente.php");
 } else {
-    echo '<script>alert("Datos erroneos, Vuelva a intentarlo");window.location.href="/Awos/HTML/login_residente.html";</script>';
+    echo '<script>alert("Datos erroneos, Vuelva a intentarlo");window.location.href="../HTML/login_residente.html";</script>';
 }
 
 $conn->close();

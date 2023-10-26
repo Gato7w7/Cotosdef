@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vista de Administrador</title>
     <link rel="stylesheet" href="/Awos/CSS/admin.css"> <!-- Enlaza el archivo CSS -->
-    <link rel="shortcut icon" href="/Awos/icono.ico">
+    <link rel="shortcut icon" href="../icono.ico">
 </head>
 <body>
     <script src="../JS/buscador.js"></script>
@@ -20,7 +20,7 @@
 
     if (isset($_POST['cerrar_sesion'])) {
         session_destroy();
-        header("Location: /Awos/HTML/index.html");
+        header("Location: ../index.html");
         exit;
 
     }
@@ -61,7 +61,7 @@
     ?>
     <div class="buttons">
         <button id="">Agregar Cuenta</button>
-        <a href="/Awos/PHP/registros_admin.php">
+        <a href="../PHP/registros_admin.php">
         <button id="">Registros Diarios</button>
         </a>
         <button id="">Modificar</button>
