@@ -21,7 +21,7 @@ if ($result->num_rows > 0) {
     $_SESSION['Sesion'] = $usuario;
     header("Location: ../PHP/contactos_residente.php");
 } else {
-    echo '<script>alert("Datos erroneos, Vuelva a intentarlo");window.location.href="../HTML/login_residente.html";</script>';
+    echo '<script>alert("Datos erroneos, Vuelva a intentarlo");window.location.href="/Awos/HTML/login_residente.html";</script>';
 }
 
 $conn->close();

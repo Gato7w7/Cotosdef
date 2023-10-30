@@ -1,0 +1,121 @@
+body{
+    background-color: #EFE5E2;
+}
+table {
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    background-color: #ffffff;
+    border-collapse: collapse;
+    border-radius: 10px;
+    padding: 40px;
+    height: 50%; /* Cambia la altura según tus necesidades */
+    width: 70%; /* Cambia el ancho según tus necesidades */
+    text-align: center;
+    position: absolute; /* Cambia 'absolute' por 'relative' si prefieres un posicionamiento relativo */
+    top: 33%; /* Cambia la distancia superior según tus necesidades */
+    left: 25%; /* Cambia la distancia izquierda según tus necesidades */
+}
+button {
+    background-color: #DDDFD1;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    margin: 10px 0;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center; /* Centra los elementos horizontalmente */
+    margin-top: 20px; /* Ajusta la posición vertical, puedes cambiar el valor según tus necesidades */
+    position: absolute;
+}
+.container {
+    display: block;
+    height: 20px;
+    width: 10%;
+    background-color: #DDDFD1; 
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #000000; 
+    top: 10%;
+    left: 87%;
+    position: absolute;
+  }
+  mover{
+    top: 5%;
+    left: 10%;
+    position: absolute;
+  }
+.mover2{
+    top: 28%;
+    left: 5%;
+    position: absolute;
+}
+.mover3{
+    top: 38%;
+    left: 4.7%;
+    position: absolute;
+}
+.mover4{
+    top: 48%;
+    left: 6.5%;
+    position: absolute;
+}
+.mover5{
+    top: 58%;
+    left: 6.6%;
+    position: absolute;
+}
+.cerrar{
+    background-color: #DDDFD1;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center; /* Centra los elementos horizontalmente */
+    margin-top: 20px; /* Ajusta la posición vertical, puedes cambiar el valor según tus necesidades */
+    position: absolute;
+    top: 3%;
+    left: 89.3%;
+}
+h1 {
+    color: #000000; /* Cambia el color del texto a tu elección */
+    font-size: 36px; /* Cambia el tamaño de la fuente a tu elección */
+    font-family: Arial, sans-serif; /* Cambia la fuente a tu elección */
+    text-align: center; /* Alinea el texto al centro, si lo deseas */
+    
+  }
+  .cuadrado {
+    width: 80%; /* Ancho del cuadrado */
+    height: 80%; /* Altura del cuadrado */
+    background-color: #DDDFD1; /* Color de fondo */
+    margin: 20px; /* Espacio alrededor del cuadrado */
+    position: absolute;
+    top: 15%;
+    left: 18%;
+    border: none;
+    border-radius: 15px;
+ 
+  }
+.cuadh1{
+    background-color: #ffffff;
+    border: none;
+    border-radius: 15px;
+    padding: 15px 30px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center; /* Centra los elementos horizontalmente */
+    margin-top: 20px; /* Ajusta la posición vertical, puedes cambiar el valor según tus necesidades */
+    position: absolute;
+    top: 2%;
+    left: 35%;
+}

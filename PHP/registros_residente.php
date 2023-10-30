@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <script src="../JS/buscador.js"></script>
+    <script src="/Awos/JS/buscador.js"></script>
     <a href="contactos_residente.php" class="back-button">Regresar</a>
     <h3>Registro de Entradas y Salidas</h3>
 

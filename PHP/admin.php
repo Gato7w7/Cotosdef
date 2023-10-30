@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vista de Administrador</title>
-    <link rel="stylesheet" href="/Awos/CSS/admin.css"> <!-- Enlaza el archivo CSS -->
-    <link rel="shortcut icon" href="../icono.ico">
+    <link rel="stylesheet" href="/Awos/CSS/adm.css"> <!-- Enlaza el archivo CSS -->
+    <link rel="shortcut icon" href="/Awos/icono.ico">
 </head>
 <body>
     <script src="../JS/buscador.js"></script>
-    <h1>Panel de Administrador</h1>
+    <h1 class="cuadh1">Panel de Administrador</h1>
     <?php
     $username = "root";
     $password = "";
@@ -20,12 +20,12 @@
 
     if (isset($_POST['cerrar_sesion'])) {
         session_destroy();
-        header("Location: ../index.html");
+        header("Location: /Awos/index.html");
         exit;
 
     }
-
-    echo '<table id="datos"> 
+    
+    echo '<div> <table id="datos"> 
       <tr> 
           <td> <font face="Arial">Numero de Casa</font> </td> 
           <td> <font face="Arial">Nombre de Residente</font> </td> 
@@ -33,7 +33,7 @@
           <td> <font face="Arial">Telefono</font> </td> 
           <td> <font face="Arial">Usuario</font> </td> 
           <td> <font face="Arial">Contraseña</font> </td> 
-      </tr>';
+      </tr> </div>';
 
     if ($result = $mysqli->query($query)) {
         while ($row = $result->fetch_assoc()) {
@@ -59,19 +59,20 @@
         $result->free();
     }
     ?>
-    <div class="buttons">
-        <button id="">Agregar Cuenta</button>
-        <a href="../PHP/registros_admin.php">
-        <button id="">Registros Diarios</button>
+    <div class="cuadrado"></div>
+    <div class="mover">
+        <button class="button, mover2" id="">Agregar Cuenta</button><br>
+        <a href="/Awos/PHP/registros_admin.php">
+        <button class="button, mover3" id="">Registros Diarios</button><br>
         </a>
-        <button id="">Modificar</button>
-        <button id="">Eliminar</button>
+        <button class="button, mover4" id="">Modificar</button><br>
+        <button class="button, mover5" id="">Eliminar</button><br>
     </div>
-    <form method="post" action="">
-        <input type="submit" name="cerrar_sesion" value="Cerrar Sesión">
-        </form>
-        <form>
-        Buscar residente <input id="searchTerm" type="text" onkeyup="doSearch()" />
+    <form method="post" action="" class="mover">
+        <input class="cerrar" type="submit" name="cerrar_sesion" value="Cerrar Sesión">
+    </form>
+    <form>
+        <input class="container" placeholder="Buscar recidente" id="searchTerm" type="text" onkeyup="doSearch()" />
     </form>
 </body>
 </html>

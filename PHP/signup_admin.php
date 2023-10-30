@@ -21,7 +21,7 @@ if ($result->num_rows > 0) {
     $_SESSION['Sesion'] = $usuario;
     header("Location: ../PHP/admin.php");
 } else {
-    echo '<script>alert("Datos erroneos, Vuelva a intentarlo");window.location.href="../HTML/login_admin.html";</script>';
+    echo '<script>alert("Datos erroneos, Vuelva a intentarlo");window.location.href="/Awos/HTML/login_admin.html";</script>';
 }
 
 $conn->close();

@@ -10,13 +10,15 @@
 </head>
 
 <body>
-    <script src="../JS/buscador.js"></script>
+    <script src="/Awos/JS/buscador.js"></script>
     <h1>Lista de Contactos</h1>
     <form>
         <input type="text" id="" placeholder="Generar PIN">
     </form>
     <div class="buttons">
+        <a href="/Awos/PHP/agregar_contacto.php">
         <button id="agregar-contacto">Agregar Contacto</button>
+        </a>
         <button id="generar-pin">Generar PIN</button>
         <a href="/Awos/PHP/registros_residente.php">
             <button id="registros">Registros</button>
@@ -33,7 +35,7 @@
 
     if (isset($_POST['cerrar_sesion'])) {
         session_destroy();
-        header("Location: ../index.html");
+        header("Location: /Awos/index.html");
         exit;
 
     }
