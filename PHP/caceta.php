@@ -7,6 +7,25 @@
     <title>Caceta</title>
 </head>
 <body>
+
+<?php 
+
+    $username = "root";
+    $password = "";
+    $database = "hogardigital";
+    $mysqli = new mysqli("localhost", $username, $password, $database);
+    session_start();
+    $query = "SELECT * from residente";
+
+    if (isset($_POST['cerrar_sesion'])) {
+        session_destroy();
+        header("Location: /Awos/index.html");
+        exit;
+
+    }
+   echo $_SESSION["Sesion"] ;
+?>
+
     <div class="container">
         <div class="box">
             <form action="" id="">
@@ -33,5 +52,10 @@
             </form>
         </div>
     </div>
+
+    <form method="post" action="" class="mover">
+        <input class="cerrar" type="submit" name="cerrar_sesion" value="Cerrar Sesión">
+    </form>
+
 </body>
 </html>

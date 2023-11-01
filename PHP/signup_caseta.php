@@ -17,7 +17,9 @@ $sql = "SELECT * FROM caseta WHERE Usuario = '$usuario' AND Contraseña = '$cont
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    header("Location: ../HTML/caceta.html");
+    session_start();
+    $_SESSION['Sesion'] = $usuario;
+    header("Location: ../PHP/caceta.php");
 } else {
     echo '<script>alert("Datos erroneos, Vuelva a intentarlo");window.location.href="/Awos/HTML/login_caseta.html";</script>';
 }

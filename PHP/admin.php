@@ -72,7 +72,7 @@
         <input class="cerrar" type="submit" name="cerrar_sesion" value="Cerrar Sesión">
     </form>
     <form>
-        <input class="container" placeholder="Buscar recidente" id="searchTerm" type="text" onkeyup="doSearch()" />
+        <input class="container" placeholder="Buscar residente" id="searchTerm" type="text" onkeyup="doSearch()" />
     </form>
 </body>
 </html>

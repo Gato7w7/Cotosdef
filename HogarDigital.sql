@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `pines` (
   KEY `Num.Casa` (`NumCasa`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla hogardigital.pines: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla hogardigital.pines: ~4 rows (aproximadamente)
 INSERT INTO `pines` (`PIN`, `NumCasa`, `Duracion`) VALUES
 	('2202', '1', '0000-00-00 00:00:00'),
 	('4448', '3', '2023-10-19 10:17:02'),
@@ -113,11 +113,11 @@ CREATE TABLE IF NOT EXISTS `residente` (
   PRIMARY KEY (`NumCasa`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla hogardigital.residente: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla hogardigital.residente: ~5 rows (aproximadamente)
 INSERT INTO `residente` (`NumCasa`, `Nombre_R`, `Apellido_R`, `Telefono`, `Usuario`, `Contraseña`) VALUES
-	('1', 'Koke', 'Villa', '4491871833', 'pito', '123'),
-	('2', 'vagina', 'peluda', '4497851265', 'vag', '124'),
-	('3', 'Roman', 'Alba', '4495657896', 'pitudo', '456'),
+	('1', 'Koke', 'Villa', '4491871833', 'Koke', '123'),
+	('2', 'Jose', 'Lope', '4497851265', 'jo', '124'),
+	('3', 'Roman', 'Alba', '4495657896', 'Roman', '456'),
 	('4', 'Johany', 'Carrillo', '4491969363', 'joha', '123'),
 	('5', 'Amy', 'Peralta', '4497851254', 'Chi', '123');
 
