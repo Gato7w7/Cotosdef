@@ -18,6 +18,16 @@
     session_start();
     $query = "SELECT * from residente";
 
+    if (isset($_POST['eliminar_registro'])) {
+        $id_a_eliminar = $_POST['id_eliminar']; // El ID del registro a eliminar
+        $eliminar_query = "DELETE FROM residente WHERE NumCasa = $id_a_eliminar";
+        if ($mysqli->query($eliminar_query)) {
+            echo '<script>alert("Residente eliminado exitosamente");window.location.href="/Awos/PHP/admin.php";</script>';
+        } else {
+            echo "Error al eliminar el registro: " . $mysqli->error;
+        }
+    }
+
     if (isset($_POST['cerrar_sesion'])) {
         session_destroy();
         header("Location: /Awos/index.html");
@@ -51,6 +61,12 @@
                   <td>' . $field4name . '</td>
                   <td>' . $field5name . '</td>
                   <td>' . $field6name . '</td>  
+                  <td>
+                  <form method="post" action="">
+                      <input type="hidden" name="id_eliminar" value="' . $row["NumCasa"] . '">
+                      <input type="submit" name="eliminar_registro" value="Eliminar">
+                  </form>
+                  </td>
               </tr>
               <tr class="noSearch hide">
               <td colspan="5"></td>
@@ -61,12 +77,14 @@
     ?>
     <div class="cuadrado"></div>
     <div class="mover">
+        <a href="/Awos/PHP/agregar_cuenta.php">
         <button class="button, mover2" id="">Agregar Cuenta</button><br>
+        </a>
         <a href="/Awos/PHP/registros_admin.php">
         <button class="button, mover3" id="">Registros Diarios</button><br>
         </a>
         <button class="button, mover4" id="">Modificar</button><br>
-        <button class="button, mover5" id="">Eliminar</button><br>
+        <br>
     </div>
     <form method="post" action="" class="mover">
         <input class="cerrar" type="submit" name="cerrar_sesion" value="Cerrar Sesión">

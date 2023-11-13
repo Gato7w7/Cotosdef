@@ -11,17 +11,17 @@
     <a href="/Awos/PHP/contactos_residente.php" class="btn-regresar">Regresar</a>
     <div class="container">
         <div class="box">
-            <form action="#" id="addContactForm">
+            <form action="meter.php" id="addContactForm" method="post">
                 <h3>Agregar Contacto</h3>
 
                 <label for="nombre">Nombre</label>
-                <input type="text" placeholder="Nombre" id="nombre" required>
+                <input type="text" placeholder="Nombre" name="nombre" required>
 
                 <label for="numero">Número de Teléfono</label>
-                <input type="tel" placeholder="Número de Teléfono" id="numero" required>
+                <input type="tel" placeholder="Número de Teléfono" name="numero" required>
 
-                <label for="alias">Usuario</label>
-                <input type="text" placeholder="Usuario" id="alias" required>
+                <label for="ape">Apellido</label>
+                <input type="text" placeholder="Apellido" name="ape" required>
 
                 <button type="submit" class="btn-agregar">Agregar Contacto</button>
             </form>

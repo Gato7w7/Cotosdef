@@ -1,6 +1,6 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Versión del servidor:         10.4.28-MariaDB - mariadb.org binary distribution
+-- Versión del servidor:         10.4.27-MariaDB - mariadb.org binary distribution
 -- SO del servidor:              Win64
 -- HeidiSQL Versión:             12.3.0.6589
 -- --------------------------------------------------------
@@ -48,40 +48,37 @@ INSERT INTO `caseta` (`IDGuardia`, `Nombre_C`, `Apellido_C`, `Usuario`, `Contras
 
 -- Volcando estructura para tabla hogardigital.contactos
 CREATE TABLE IF NOT EXISTS `contactos` (
-  `PIN` char(4) NOT NULL,
   `Nombre` varchar(45) NOT NULL,
   `Apellido` varchar(45) NOT NULL,
   `Telefono` varchar(45) NOT NULL,
   `Residente_ID` char(4) DEFAULT NULL,
-  KEY `PINES_idx` (`PIN`),
   KEY `Resiedente_ID` (`Residente_ID`),
-  CONSTRAINT `PINES` FOREIGN KEY (`PIN`) REFERENCES `pines` (`PIN`),
-  CONSTRAINT `Resiedente_ID` FOREIGN KEY (`Residente_ID`) REFERENCES `residente` (`NumCasa`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `NumCasa` FOREIGN KEY (`Residente_ID`) REFERENCES `residente` (`NumCasa`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla hogardigital.contactos: ~5 rows (aproximadamente)
-INSERT INTO `contactos` (`PIN`, `Nombre`, `Apellido`, `Telefono`, `Residente_ID`) VALUES
-	('2202', 'Andy', 'Salas', '4491238754', '1'),
-	('5555', 'ko', 'lolol', '4496587989', '2'),
-	('4448', 'Pamela', 'lope', '499999999', '3'),
-	('5656', 'Martin', 'Salas', '449789787', '4'),
-	('5656', 'Pepe', 'Si', '4497896985', '4');
+INSERT INTO `contactos` (`Nombre`, `Apellido`, `Telefono`, `Residente_ID`) VALUES
+	('Andy', 'Salas', '4491238754', '1'),
+	('ko', 'lolol', '4496587989', '2'),
+	('Pamela', 'lope', '499999999', '3'),
+	('Martin', 'Salas', '449789787', '4'),
+	('Pepe', 'Si', '4497896985', '4');
 
 -- Volcando estructura para tabla hogardigital.pines
 CREATE TABLE IF NOT EXISTS `pines` (
   `PIN` char(4) NOT NULL,
   `NumCasa` char(4) NOT NULL,
   `Duracion` datetime NOT NULL,
-  PRIMARY KEY (`PIN`),
-  KEY `Num.Casa` (`NumCasa`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `ID_PIN` int(4) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`ID_PIN`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla hogardigital.pines: ~4 rows (aproximadamente)
-INSERT INTO `pines` (`PIN`, `NumCasa`, `Duracion`) VALUES
-	('2202', '1', '0000-00-00 00:00:00'),
-	('4448', '3', '2023-10-19 10:17:02'),
-	('5555', '2', '2023-10-18 10:10:09'),
-	('5656', '4', '2023-10-19 13:56:33');
+INSERT INTO `pines` (`PIN`, `NumCasa`, `Duracion`, `ID_PIN`) VALUES
+	('2202', '1', '0000-00-00 00:00:00', 1),
+	('4448', '3', '2023-10-19 10:17:02', 2),
+	('5555', '2', '2023-10-18 10:10:09', 3),
+	('5656', '4', '2023-10-19 13:56:33', 4);
 
 -- Volcando estructura para tabla hogardigital.registros
 CREATE TABLE IF NOT EXISTS `registros` (
@@ -89,22 +86,19 @@ CREATE TABLE IF NOT EXISTS `registros` (
   `Cantidad_P` int(11) NOT NULL,
   `Nombre_Contacto` varchar(45) NOT NULL,
   `Acceso` varchar(45) NOT NULL,
-  `PIN` char(4) NOT NULL,
   `Hora_Entrada` time DEFAULT NULL,
   `Hora_Salida` time DEFAULT NULL,
-  `Foto` longblob DEFAULT NULL,
-  KEY `PINES_idx` (`PIN`),
-  CONSTRAINT `Pin` FOREIGN KEY (`PIN`) REFERENCES `pines` (`PIN`)
+  `Foto` longblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla hogardigital.registros: ~2 rows (aproximadamente)
-INSERT INTO `registros` (`Tipo_T`, `Cantidad_P`, `Nombre_Contacto`, `Acceso`, `PIN`, `Hora_Entrada`, `Hora_Salida`, `Foto`) VALUES
-	('Pie', 2, 'Martin', '', '5656', '18:06:40', '18:06:42', NULL),
-	('Auto', 6, 'Pepe', '', '5656', '19:14:15', '19:14:16', NULL);
+INSERT INTO `registros` (`Tipo_T`, `Cantidad_P`, `Nombre_Contacto`, `Acceso`, `Hora_Entrada`, `Hora_Salida`, `Foto`) VALUES
+	('Pie', 2, 'Martin', '', '18:06:40', '18:06:42', NULL),
+	('Auto', 6, 'Pepe', '', '19:14:15', '19:14:16', NULL);
 
 -- Volcando estructura para tabla hogardigital.residente
 CREATE TABLE IF NOT EXISTS `residente` (
-  `NumCasa` char(1) NOT NULL,
+  `NumCasa` char(4) NOT NULL,
   `Nombre_R` varchar(45) NOT NULL,
   `Apellido_R` varchar(45) NOT NULL,
   `Telefono` varchar(45) NOT NULL,

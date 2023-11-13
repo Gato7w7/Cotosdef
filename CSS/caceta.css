@@ -1,0 +1,167 @@
+body {
+    background-color: #EFE5E2;
+}
+
+button {
+    display: block;
+    background-color: #D4D2C1;
+    color: #000000;
+    border: none;
+    padding: 15px 30px;
+    margin: 10px auto;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+input {
+    display: block;
+    height: 20px;
+    width: 10%;
+    background-color: #EFE5E2; 
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #000000; 
+  }
+  .cuadrado {
+    width: 80%; /* Ancho del cuadrado */
+    height: 80%; /* Altura del cuadrado */
+    background-color: #DDDFD1; /* Color de fondo */
+    margin: 20px; /* Espacio alrededor del cuadrado */
+    position: absolute;
+    top: 8%;
+    left: 10%;
+    border: none;
+    border-radius: 15px;
+ 
+  }
+  .mover-input{
+    top: 28%;
+    left: 19%;
+    position: absolute;
+  }
+  .mover-bus{
+    top: 20%;
+    left: 19.5%;
+    position: absolute;
+  }
+.mover2{
+    top: 28%;
+    left: 32%;
+    position: absolute;
+}
+.mover3{
+    top: 28%;
+    left: 45%;
+    position: absolute;
+}
+.mover4{
+    top: 28%;
+    left: 58%;
+    position: absolute;
+}
+.mover5{
+    top: 28%;
+    left: 71%;
+    position: absolute;
+}
+.mover6{
+    top: 43.5%;
+    left: 19%;
+    position: absolute; 
+}
+.mover7{
+    top: 37.5%;
+    left: 19%;
+    position: absolute; 
+}
+.mover8{
+    top: 38%;
+    left: 32%;
+    position: absolute;
+}
+.mover9{
+    top: 38%;
+    left: 45%;
+    position: absolute;
+}
+.mover10{
+    top: 38%;
+    left: 58%;
+    position: absolute;
+}
+.mover11{
+    top: 38%;
+    left: 71%;
+    position: absolute;
+}
+.mover12{
+    top: 37%;
+    left: 22%;
+    position: absolute; 
+}
+.mover13{
+    top: 42%;
+    left: 22%;
+    position: absolute; 
+}
+.mover14{
+    top: 39%;
+    left: 65%;
+    position: absolute;
+}
+.mover15{
+    top: 39%;
+    left: 78%;
+    position: absolute; 
+}
+.mover16{
+    top: 55%;
+    left: 45%;
+    position: absolute; 
+}
+.mover17{
+    top: 44%;
+    left: 32%;
+    position: absolute;
+}
+.cerrar{
+    display: block;
+    background-color: #D4D2C1;
+    color: #000000;
+    border: none;
+    padding: 15px 30px;
+    margin: 15px auto;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    position: absolute;
+    top: 3%;
+    left: 89.3%;
+}
+h3 {
+    color: #000000; /* Cambia el color del texto a tu elección */
+    font-size: 30px; /* Cambia el tamaño de la fuente a tu elección */
+    font-family: Arial, sans-serif; /* Cambia la fuente a tu elección */
+    text-align: center; /* Alinea el texto al centro, si lo deseas */
+    
+  }
+  .cuadh3{
+    background-color: #ffffff;
+    border: none;
+    border-radius: 15px;
+    padding: 15px 30px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center; /* Centra los elementos horizontalmente */
+    margin-top: 20px; /* Ajusta la posición vertical, puedes cambiar el valor según tus necesidades */
+    position: absolute;
+    top: 0%;
+    left: 42%;
+}

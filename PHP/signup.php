@@ -19,6 +19,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     session_start();
     $_SESSION['Sesion'] = $usuario;
+    $_SESSION['ID'] = "SELECT Residente_ID from residente where Usuario = '$usuario' AND Contraseña = '$contraseña'";
     header("Location: ../PHP/contactos_residente.php");
 } else {
     echo '<script>alert("Datos erroneos, Vuelva a intentarlo");window.location.href="/Awos/HTML/login_residente.html";</script>';

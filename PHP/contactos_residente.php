@@ -19,7 +19,9 @@
         <a href="/Awos/PHP/agregar_contacto.php">
         <button id="agregar-contacto">Agregar Contacto</button>
         </a>
+        <a href="/Awos/PHP/generador_pin.php">
         <button id="generar-pin">Generar PIN</button>
+        </a>
         <a href="/Awos/PHP/registros_residente.php">
             <button id="registros">Registros</button>
         </a>
@@ -31,7 +33,7 @@
     $database = "hogardigital";
     $mysqli = new mysqli("localhost", $username, $password, $database);
     session_start();
-    $query = "SELECT c.PIN, c.Nombre, c.Apellido, c.Telefono from contactos c, residente r WHERE c.Residente_ID=r.NumCasa and r.Usuario like '$_SESSION[Sesion]';";
+    $query = "SELECT  c.Nombre, c.Apellido, c.Telefono from contactos c, residente r WHERE c.Residente_ID=r.NumCasa and r.Usuario like '$_SESSION[Sesion]';";
 
     if (isset($_POST['cerrar_sesion'])) {
         session_destroy();
@@ -42,7 +44,6 @@
 
     echo '<table id="datos"> 
       <tr> 
-          <td> <font face="Arial">PIN</font> </td> 
           <td> <font face="Arial">Apellido</font> </td> 
           <td> <font face="Arial">Nombre</font> </td> 
           <td> <font face="Arial">Telefono</font> </td> 
@@ -50,13 +51,11 @@
 
     if ($result = $mysqli->query($query)) {
         while ($row = $result->fetch_assoc()) {
-            $field1name = $row["PIN"];
             $field2name = $row["Apellido"];
             $field3name = $row["Nombre"];
             $field4name = $row["Telefono"];
 
             echo '<tr> 
-                  <td>' . $field1name . '</td> 
                   <td>' . $field2name . '</td> 
                   <td>' . $field3name . '</td> 
                   <td>' . $field4name . '</td>  
