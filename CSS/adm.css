@@ -7,7 +7,7 @@ table {
     background-color: #ffffff;
     border-collapse: collapse;
     border-radius: 10px;
-    padding: 40px;
+    padding: 0;
     height: 50%; /* Cambia la altura según tus necesidades */
     width: 70%; /* Cambia el ancho según tus necesidades */
     text-align: center;
@@ -15,6 +15,7 @@ table {
     top: 33%; /* Cambia la distancia superior según tus necesidades */
     left: 25%; /* Cambia la distancia izquierda según tus necesidades */
 }
+
 button {
     background-color: #DDDFD1;
     color: #000000;
@@ -51,17 +52,17 @@ button {
     position: absolute;
   }
 .mover2{
-    top: 28%;
+    top: 38%;
     left: 5%;
     position: absolute;
 }
 .mover3{
-    top: 38%;
+    top: 48%;
     left: 4.7%;
     position: absolute;
 }
 .mover4{
-    top: 48%;
+    top: 58%;
     left: 6.5%;
     position: absolute;
 }

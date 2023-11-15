@@ -20,14 +20,13 @@
     $database = "hogardigital";
     $mysqli = new mysqli("localhost", $username, $password, $database);
     session_start();
-    $query = "SELECT re.* FROM registros re, pines p, residente rs WHERE re.PIN = p.PIN AND p.NumCasa = rs.NumCasa
-    AND rs.Usuario = '$_SESSION[Sesion]';";
+    $query = "SELECT * FROM registros, residente WHERE NumCasa = NumCasa
+    AND Usuario = '$_SESSION[Sesion]';";
 
     echo '<table id="datos"> 
 <tr> 
     <td> <font face="Arial">Nombre de Contacto</font> </td> 
     <td> <font face="Arial">Cantidad de Personas</font> </td> 
-    <td> <font face="Arial">PIN</font> </td> 
     <td> <font face="Arial">Tipo de Transporte</font> </td> 
     <td> <font face="Arial">Hora de entrada</font> </td> 
     <td> <font face="Arial">Hora de salida</font> </td> 
@@ -37,7 +36,6 @@
         while ($row = $result->fetch_assoc()) {
             $field1name = $row["Nombre_Contacto"];
             $field2name = $row["Cantidad_P"];
-            $field3name = $row["PIN"];
             $field4name = $row["Tipo_T"];
             $field5name = $row["Hora_Entrada"];
             $field6name = $row["Hora_Salida"];
@@ -45,7 +43,6 @@
             echo '<tr> 
             <td>' . $field1name . '</td> 
             <td>' . $field2name . '</td> 
-            <td>' . $field3name . '</td> 
             <td>' . $field4name . '</td>  
             <td>' . $field5name . '</td>  
             <td>' . $field6name . '</td>  

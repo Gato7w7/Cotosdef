@@ -1,88 +1,73 @@
-/* Reset de estilos */
-*, *:before, *:after {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
 body {
-    background-color: #EFE5E2; /* Color de fondo actualizado */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #EFE5E2;
 }
 
-/* Estilos del contenedor */
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-/* Estilos para el botón de regreso */
+#datos {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+#datos td, #datos th {
+    border: 1px solid #DDDFD1;
+    padding: 8px;
+    text-align: left;
+}
+
+#datos th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#datos tr:nth-child(odd) {
+    background-color: #DDDFD1;
+}
 
 .back-button {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #DDDFD1;
+    color: #000000;
     text-decoration: none;
-    background-color: #DDDFD1; /* Color de fondo del botón */
-    color: #000000; /* Color de texto del botón */
     border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: 500;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.back-button:hover {
-    background-color: #EFE5E2; /* Cambio de color de fondo al pasar el mouse */
-    color: #000000; /* Cambio de color de texto al pasar el mouse */
-}
-
-/* Resto de los estilos permanecen igual */
-
-
-.back-button:hover {
-    background-color: #EFE5E2; /* Cambio de color de fondo al pasar el mouse */
-    color: #000000; /* Cambio de color de texto al pasar el mouse */
-}
-
-/* Estilos para la tabla */
-table {
-    width: 80%; /* Ancho de la tabla */
-    border-collapse: collapse;
-    background-color: #ffffff; /* Color de fondo de la tabla */
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Efecto de sombra */
-    margin-top: 20px;
-}
-
-table th, table td {
-    padding: 10px 20px;
-    text-align: center;
-    border-bottom: 1px solid #DDDFD1; /* Color de borde de las celdas */
-}
-
-/* Estilos para el encabezado de la tabla */
-table th {
-    background-color: #DDDFD1; /* Color de fondo del encabezado de la tabla */
-    color: #000000; /* Color de texto del encabezado de la tabla */
-}
-
-/* Estilos para las filas impares de la tabla */
-table tbody tr:nth-child(odd) {
-    background-color: #DDDFD1; /* Color de fondo de las filas impares */
-}
-
-/* Estilos para las celdas de la tabla */
-table tbody td {
-    color: #000000; /* Color de texto de las celdas de la tabla */
-}
-
-/* Estilos para el título */
-h3 {
-    font-size: 24px;
-    font-weight: 500;
     margin-bottom: 20px;
-    color: #000000; /* Color de texto del título */
+}
+
+.back-button:hover {
+    background-color: #EFE5E2;
+    color: #000000;
+}
+
+h3 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.noSearch {
+    display: none;
+}
+
+form {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+form:hover {
+    background-color: #f0f0f0;
 }

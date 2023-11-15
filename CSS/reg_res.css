@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #EFE5E2;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #000000;
+    font-size: 24px;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+button {
+    background-color: #DDDFD1;
+    border: none;
+    color: #000000;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #C2C4B2;
+}
+
+table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+table th, table td {
+    border: 1px solid #000000;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+form[method="post"] {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.cerrar-sesion-button {
+    background-color: #DDDFD1;
+    color: #000000;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cerrar-sesion-button:hover {
+    background-color: #C2C4B2;
+}
+
+form[id="searchForm"] {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+input#searchTerm {
+    width: 150px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: width 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+input#searchTerm:focus {
+    width: 250px;
+    padding: 8px;
+    outline: none;
+    border: 2px solid #4CAF50;
+}

@@ -37,8 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Resto de etiquetas head -->
-</head>
+<link rel="stylesheet" href="../CSS/agr_cue.css"></head>
 <body>
 <a href="/Awos/PHP/admin.php" class="btn-regresar">Regresar</a>
     <div class="container">

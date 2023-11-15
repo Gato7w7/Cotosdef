@@ -94,7 +94,8 @@ CREATE TABLE IF NOT EXISTS `registros` (
 -- Volcando datos para la tabla hogardigital.registros: ~2 rows (aproximadamente)
 INSERT INTO `registros` (`Tipo_T`, `Cantidad_P`, `Nombre_Contacto`, `Acceso`, `Hora_Entrada`, `Hora_Salida`, `Foto`) VALUES
 	('Pie', 2, 'Martin', '', '18:06:40', '18:06:42', NULL),
-	('Auto', 6, 'Pepe', '', '19:14:15', '19:14:16', NULL);
+	('Auto', 6, 'Pepe', '', '19:14:15', '19:14:16', NULL),
+	('Auto', 3, 'Bryan', '', '11:17:24', '11:17:26', NULL);
 
 -- Volcando estructura para tabla hogardigital.residente
 CREATE TABLE IF NOT EXISTS `residente` (

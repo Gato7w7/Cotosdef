@@ -24,7 +24,6 @@
         exit;
 
     }
-   echo $_SESSION["Sesion"] ;
 ?>
     <div class="cuadrado"></div>
     <div >

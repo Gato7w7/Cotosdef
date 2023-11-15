@@ -26,7 +26,6 @@
           <td> <font face="Arial">Nombre de contacto</font> </td> 
           <td> <font face="Arial">Cantidad de personas</font> </td> 
           <td> <font face="Arial">Tipo de transporte</font> </td> 
-          <td> <font face="Arial">PIN</font> </td> 
           <td> <font face="Arial">Acceso</font> </td> 
           <td> <font face="Arial">Hora de entrada</font> </td> 
           <td> <font face="Arial">Hora de salida</font> </td> 
@@ -38,7 +37,6 @@
             $field1name = $row["Nombre_Contacto"];
             $field2name = $row["Cantidad_P"];
             $field3name = $row["Tipo_T"];
-            $field4name = $row["PIN"];
             $field5name = $row["Acceso"];
             $field6name = $row["Hora_Entrada"];
             $field7name = $row["Hora_Salida"];
@@ -48,7 +46,6 @@
                   <td>' . $field1name . '</td> 
                   <td>' . $field2name . '</td> 
                   <td>' . $field3name . '</td> 
-                  <td>' . $field4name . '</td>
                   <td>' . $field5name . '</td>
                   <td>' . $field6name . '</td>
                   <td>' . $field7name . '</td>  

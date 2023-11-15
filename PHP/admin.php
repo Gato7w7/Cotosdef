@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="/Awos/CSS/adm.css"> <!-- Enlaza el archivo CSS -->
     <link rel="shortcut icon" href="/Awos/icono.ico">
 </head>
+
 <body>
     <script src="../JS/buscador.js"></script>
     <h1 class="cuadh1">Panel de Administrador</h1>
@@ -34,7 +36,7 @@
         exit;
 
     }
-    
+
     echo '<div> <table id="datos"> 
       <tr> 
           <td> <font face="Arial">Numero de Casa</font> </td> 
@@ -62,11 +64,24 @@
                   <td>' . $field5name . '</td>
                   <td>' . $field6name . '</td>  
                   <td>
-                  <form method="post" action="">
+                    <form method="post" action="">
                       <input type="hidden" name="id_eliminar" value="' . $row["NumCasa"] . '">
-                      <input type="submit" name="eliminar_registro" value="Eliminar">
-                  </form>
+                      <input type="submit" name="eliminar_registro" value="Eliminar" 
+                      style="background-color: #DDDFD1; color: #000000; border: none; 
+                      border-radius: 5px; padding: 10px 20px; margin: 10px 0; font-size: 14px; 
+                      cursor: pointer; transition: background-color 0.3s ease, color 0.3s ease; text-align: center;">
+                    </form>
                   </td>
+
+                  <td>
+                  <form method="post" action="/Awos/PHP/modificar_registro.php" style="margin: 0;">
+            <input type="hidden" name="id_modificar" value="<?php echo $field1name; ?>">
+            <input type="submit" name="modificar_registro" value="Modificar"
+                style="background-color: #DDDFD1; color: #000000; border: none; 
+                border-radius: 5px; padding: 10px 20px; margin: 10px 0; font-size: 14px; 
+                cursor: pointer; transition: background-color 0.3s ease, color 0.3s ease; text-align: center;">
+        </form>
+        </td>
               </tr>
               <tr class="noSearch hide">
               <td colspan="5"></td>
@@ -78,13 +93,12 @@
     <div class="cuadrado"></div>
     <div class="mover">
         <a href="/Awos/PHP/agregar_cuenta.php">
-        <button class="button, mover2" id="">Agregar Cuenta</button><br>
+            <button class="button, mover2" id="">Agregar Cuenta</button><br>
         </a>
         <a href="/Awos/PHP/registros_admin.php">
-        <button class="button, mover3" id="">Registros Diarios</button><br>
+            <button class="button, mover3" id="">Registros Diarios</button><br>
         </a>
-        <button class="button, mover4" id="">Modificar</button><br>
-        <br>
+
     </div>
     <form method="post" action="" class="mover">
         <input class="cerrar" type="submit" name="cerrar_sesion" value="Cerrar Sesión">
@@ -93,4 +107,5 @@
         <input class="container" placeholder="Buscar residente" id="searchTerm" type="text" onkeyup="doSearch()" />
     </form>
 </body>
+
 </html>
