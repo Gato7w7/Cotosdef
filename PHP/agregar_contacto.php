@@ -17,15 +17,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($mysqli->connect_error) {
         die("Error de conexión: " . $mysqli->connect_error);
     }
-
+    
     // Crear la consulta SQL de inserción
     $query = "INSERT INTO contactos (Nombre, Apellido, Telefono, Residente_ID) VALUES ('$nom', '$ape', '$tele', '$ses')";
 
     // Ejecutar la consulta de inserción
-    if ($mysqli->query($query)) {
+    $result = $mysqli->query($query);
+
+    if ($result) {
         echo '<script>alert("Contacto agregado exitosamente");window.location.href="/Awos/PHP/contactos_residente.php";</script>';
     } else {
-        echo "Error al registrar al residente: " . $mysqli->error;
+        echo "Error al agregar contacto: " . $mysqli->error;
     }
 
     // Cerrar la conexión a la base de datos
@@ -34,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 

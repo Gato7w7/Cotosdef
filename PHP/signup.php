@@ -14,12 +14,17 @@ $usuario = $_POST['Usuario'];
 $contraseña = $_POST['Contraseña'];
 
 $sql = "SELECT * FROM residente WHERE Usuario = '$usuario' AND Contraseña = '$contraseña'";
+
 $result = $conn->query($sql);
+
+$sqlres = "SELECT NumCasa from residente where Usuario = '$usuario' AND Contraseña = '$contraseña';";
+$resres = $conn->query($sqlres);
 
 if ($result->num_rows > 0) {
     session_start();
     $_SESSION['Sesion'] = $usuario;
-    $_SESSION['ID'] = "SELECT Residente_ID from residente where Usuario = '$usuario' AND Contraseña = '$contraseña'";
+    $_SESSION['ID'] = $resres;
+    $_SESSION['Contrasena'] = $contraseña;
     header("Location: ../PHP/contactos_residente.php");
 } else {
     echo '<script>alert("Datos erroneos, Vuelva a intentarlo");window.location.href="/Awos/HTML/login_residente.html";</script>';

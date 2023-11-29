@@ -70,15 +70,14 @@ CREATE TABLE IF NOT EXISTS `pines` (
   `NumCasa` char(4) NOT NULL,
   `Duracion` datetime NOT NULL,
   `ID_PIN` int(4) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`ID_PIN`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  PRIMARY KEY (`ID_PIN`),
+  KEY `FK_pines_residente` (`NumCasa`),
+  CONSTRAINT `FK_pines_residente` FOREIGN KEY (`NumCasa`) REFERENCES `residente` (`NumCasa`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla hogardigital.pines: ~4 rows (aproximadamente)
+-- Volcando datos para la tabla hogardigital.pines: ~1 rows (aproximadamente)
 INSERT INTO `pines` (`PIN`, `NumCasa`, `Duracion`, `ID_PIN`) VALUES
-	('2202', '1', '0000-00-00 00:00:00', 1),
-	('4448', '3', '2023-10-19 10:17:02', 2),
-	('5555', '2', '2023-10-18 10:10:09', 3),
-	('5656', '4', '2023-10-19 13:56:33', 4);
+	('1234', '4', '2023-11-30 00:00:00', 49);
 
 -- Volcando estructura para tabla hogardigital.registros
 CREATE TABLE IF NOT EXISTS `registros` (
@@ -91,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `registros` (
   `Foto` longblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla hogardigital.registros: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla hogardigital.registros: ~3 rows (aproximadamente)
 INSERT INTO `registros` (`Tipo_T`, `Cantidad_P`, `Nombre_Contacto`, `Acceso`, `Hora_Entrada`, `Hora_Salida`, `Foto`) VALUES
 	('Pie', 2, 'Martin', '', '18:06:40', '18:06:42', NULL),
 	('Auto', 6, 'Pepe', '', '19:14:15', '19:14:16', NULL),

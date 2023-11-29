@@ -27,9 +27,6 @@
         <a href="/Awos/PHP/agregar_contacto.php">
             <button id="agregar-contacto">Agregar Contacto</button>
         </a>
-        <a href="/Awos/PHP/generador_pin.php">
-            <button id="generar-pin">Generar PIN</button>
-        </a>
         <a href="/Awos/PHP/registros_residente.php">
             <button id="registros">Registros</button>
         </a>
@@ -55,8 +52,7 @@ echo '<table id="datos">
 <tr> 
     <td> <font face="Arial">Apellido</font> </td> 
     <td> <font face="Arial">Nombre</font> </td> 
-    <td> <font face="Arial">Telefono</font> </td> 
-    <td> <font face="Arial">Acciones</font> </td> 
+    <td> <font face="Arial">Telefono</font> </td>  
 </tr>';
 
 if ($result = $mysqli->query($query)) {
@@ -75,6 +71,11 @@ if ($result = $mysqli->query($query)) {
                 <input type="hidden" name="telefono" value="' . $field4name . '">
                 <button type="submit" name="eliminar_contacto">Eliminar</button>
             </form></td>
+            <td>
+            <a href="/Awos/PHP/generador_pin.php">
+            <button id="generar-pin">Generar PIN</button>
+        </a>
+        </td>
         </tr>
         <tr class="noSearch hide">
         <td colspan="5"></td>
