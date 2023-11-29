@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla hogardigital.admin: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla hogardigital.admin: ~1 rows (aproximadamente)
 INSERT INTO `admin` (`ID`, `Usuario`, `Nombre`, `Contraseña`) VALUES
 	(450, 'Fer', 'Fercho', '123');
 
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `caseta` (
   PRIMARY KEY (`IDGuardia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla hogardigital.caseta: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla hogardigital.caseta: ~1 rows (aproximadamente)
 INSERT INTO `caseta` (`IDGuardia`, `Nombre_C`, `Apellido_C`, `Usuario`, `Contraseña`) VALUES
 	('50', 'Pepe', 'Lopez.', 'pepo', '123');
 
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `pines` (
 
 -- Volcando datos para la tabla hogardigital.pines: ~1 rows (aproximadamente)
 INSERT INTO `pines` (`PIN`, `NumCasa`, `Duracion`, `ID_PIN`) VALUES
-	('1234', '4', '2023-11-30 00:00:00', 49);
+	('4587', '4', '2023-11-30 00:00:00', 52);
 
 -- Volcando estructura para tabla hogardigital.registros
 CREATE TABLE IF NOT EXISTS `registros` (
