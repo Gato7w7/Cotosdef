@@ -95,7 +95,7 @@
         <a href="/Awos/PHP/agregar_cuenta.php">
             <button class="button, mover2" id="">Agregar Cuenta</button><br>
         </a>
-        <a href="/Awos/PHP/registros_admin.php">
+        <a href="/Awos/PHP/registros_diarios.php">
             <button class="button, mover3" id="">Registros Diarios</button><br>
         </a>
 

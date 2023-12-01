@@ -9,7 +9,6 @@ function doSearch()
     let total = 0;
 
 
-
     // Recorremos todas las filas con contenido de la tabla
 
     for (let i = 1; i < tableReg.rows.length; i++) {

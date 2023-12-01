@@ -28,9 +28,9 @@ CREATE TABLE IF NOT EXISTS `admin` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla hogardigital.admin: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla hogardigital.admin: ~1 rows (aproximadamente)
 INSERT INTO `admin` (`ID`, `Usuario`, `Nombre`, `Contraseña`) VALUES
-	(450, 'Fer', 'Fercho', '123');
+	(443, 'Fer', 'Fercho', '123');
 
 -- Volcando estructura para tabla hogardigital.caseta
 CREATE TABLE IF NOT EXISTS `caseta` (
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `caseta` (
   PRIMARY KEY (`IDGuardia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla hogardigital.caseta: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla hogardigital.caseta: ~1 rows (aproximadamente)
 INSERT INTO `caseta` (`IDGuardia`, `Nombre_C`, `Apellido_C`, `Usuario`, `Contraseña`) VALUES
 	('50', 'Pepe', 'Lopez.', 'pepo', '123');
 
@@ -56,13 +56,24 @@ CREATE TABLE IF NOT EXISTS `contactos` (
   CONSTRAINT `NumCasa` FOREIGN KEY (`Residente_ID`) REFERENCES `residente` (`NumCasa`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla hogardigital.contactos: ~5 rows (aproximadamente)
+-- Volcando datos para la tabla hogardigital.contactos: ~9 rows (aproximadamente)
 INSERT INTO `contactos` (`Nombre`, `Apellido`, `Telefono`, `Residente_ID`) VALUES
 	('Andy', 'Salas', '4491238754', '1'),
 	('ko', 'lolol', '4496587989', '2'),
 	('Pamela', 'lope', '499999999', '3'),
 	('Martin', 'Salas', '449789787', '4'),
-	('Pepe', 'Si', '4497896985', '4');
+	('Andy', 'Salas', '4491238754', '1'),
+	('ko', 'lolol', '4496587989', '2'),
+	('Pamela', 'lope', '499999999', '3'),
+	('Martin', 'Salas', '449789787', '4'),
+	('Krys', 'Fajardo', '4494537898', NULL);
+
+-- Volcando estructura para evento hogardigital.eliminar_registros_antiguos
+DELIMITER //
+CREATE EVENT `eliminar_registros_antiguos` ON SCHEDULE EVERY 5 SECOND STARTS '2023-12-01 01:23:39' ON COMPLETION NOT PRESERVE ENABLE DO BEGIN
+    DELETE FROM pines WHERE Duracion < CURDATE();
+END//
+DELIMITER ;
 
 -- Volcando estructura para tabla hogardigital.pines
 CREATE TABLE IF NOT EXISTS `pines` (
@@ -71,14 +82,9 @@ CREATE TABLE IF NOT EXISTS `pines` (
   `Duracion` datetime NOT NULL,
   `ID_PIN` int(4) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`ID_PIN`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla hogardigital.pines: ~4 rows (aproximadamente)
-INSERT INTO `pines` (`PIN`, `NumCasa`, `Duracion`, `ID_PIN`) VALUES
-	('2202', '1', '0000-00-00 00:00:00', 1),
-	('4448', '3', '2023-10-19 10:17:02', 2),
-	('5555', '2', '2023-10-18 10:10:09', 3),
-	('5656', '4', '2023-10-19 13:56:33', 4);
+-- Volcando datos para la tabla hogardigital.pines: ~0 rows (aproximadamente)
 
 -- Volcando estructura para tabla hogardigital.registros
 CREATE TABLE IF NOT EXISTS `registros` (
@@ -91,11 +97,7 @@ CREATE TABLE IF NOT EXISTS `registros` (
   `Foto` longblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla hogardigital.registros: ~2 rows (aproximadamente)
-INSERT INTO `registros` (`Tipo_T`, `Cantidad_P`, `Nombre_Contacto`, `Acceso`, `Hora_Entrada`, `Hora_Salida`, `Foto`) VALUES
-	('Pie', 2, 'Martin', '', '18:06:40', '18:06:42', NULL),
-	('Auto', 6, 'Pepe', '', '19:14:15', '19:14:16', NULL),
-	('Auto', 3, 'Bryan', '', '11:17:24', '11:17:26', NULL);
+-- Volcando datos para la tabla hogardigital.registros: ~0 rows (aproximadamente)
 
 -- Volcando estructura para tabla hogardigital.residente
 CREATE TABLE IF NOT EXISTS `residente` (
