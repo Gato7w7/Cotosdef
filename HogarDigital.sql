@@ -52,21 +52,22 @@ CREATE TABLE IF NOT EXISTS `contactos` (
   `Apellido` varchar(45) NOT NULL,
   `Telefono` varchar(45) NOT NULL,
   `Residente_ID` char(4) DEFAULT NULL,
+  `Pin` char(4) DEFAULT NULL,
   KEY `Resiedente_ID` (`Residente_ID`),
-  CONSTRAINT `NumCasa` FOREIGN KEY (`Residente_ID`) REFERENCES `residente` (`NumCasa`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `pins` (`Pin`),
+  CONSTRAINT `NumCasa` FOREIGN KEY (`Residente_ID`) REFERENCES `residente` (`NumCasa`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `pins` FOREIGN KEY (`Pin`) REFERENCES `pines` (`PIN`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla hogardigital.contactos: ~9 rows (aproximadamente)
-INSERT INTO `contactos` (`Nombre`, `Apellido`, `Telefono`, `Residente_ID`) VALUES
-	('Andy', 'Salas', '4491238754', '1'),
-	('ko', 'lolol', '4496587989', '2'),
-	('Pamela', 'lope', '499999999', '3'),
-	('Martin', 'Salas', '449789787', '4'),
-	('Andy', 'Salas', '4491238754', '1'),
-	('ko', 'lolol', '4496587989', '2'),
-	('Pamela', 'lope', '499999999', '3'),
-	('Martin', 'Salas', '449789787', '4'),
-	('Krys', 'Fajardo', '4494537898', NULL);
+-- Volcando datos para la tabla hogardigital.contactos: ~7 rows (aproximadamente)
+INSERT INTO `contactos` (`Nombre`, `Apellido`, `Telefono`, `Residente_ID`, `Pin`) VALUES
+	('ko', 'lolol', '4496587989', '2', '1243'),
+	('Andy', 'Salas', '4491238754', '1', '2343'),
+	('Pamela', 'lope', '499999999', '3', NULL),
+	('Martin', 'Estrada', '4494561254', '4', NULL),
+	('Krysta', 'Fajardo', '4497851257', '4', NULL),
+	('Dayana', 'Ibarra', '4496574578', '4', NULL),
+	('Amelia Earhart', 'Pene', '4444444', '4', NULL);
 
 -- Volcando estructura para evento hogardigital.eliminar_registros_antiguos
 DELIMITER //
@@ -80,11 +81,16 @@ CREATE TABLE IF NOT EXISTS `pines` (
   `PIN` char(4) NOT NULL,
   `NumCasa` char(4) NOT NULL,
   `Duracion` datetime NOT NULL,
-  `ID_PIN` int(4) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`ID_PIN`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  PRIMARY KEY (`PIN`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla hogardigital.pines: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla hogardigital.pines: ~5 rows (aproximadamente)
+INSERT INTO `pines` (`PIN`, `NumCasa`, `Duracion`) VALUES
+	('0478', '42', '2023-12-05 00:00:00'),
+	('1243', '1', '2023-12-02 00:00:00'),
+	('2343', '1', '2024-01-02 00:00:00'),
+	('6969', '4', '2023-12-05 00:00:00'),
+	('6978', '69', '2023-12-05 00:00:00');
 
 -- Volcando estructura para tabla hogardigital.registros
 CREATE TABLE IF NOT EXISTS `registros` (
@@ -96,8 +102,6 @@ CREATE TABLE IF NOT EXISTS `registros` (
   `Hora_Salida` time DEFAULT NULL,
   `Foto` longblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- Volcando datos para la tabla hogardigital.registros: ~0 rows (aproximadamente)
 
 -- Volcando estructura para tabla hogardigital.residente
 CREATE TABLE IF NOT EXISTS `residente` (

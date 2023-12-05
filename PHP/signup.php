@@ -17,6 +17,9 @@ $sql = "SELECT * FROM residente WHERE Usuario = '$usuario' AND Contraseña = '$c
 
 $result = $conn->query($sql);
 
+$sqlres = "SELECT NumCasa from residente where Usuario = '$usuario' AND Contraseña = '$contraseña';";
+$resres = $conn->query($sqlres);
+
 if ($result->num_rows > 0) {
     session_start();
     $_SESSION['Sesion'] = $usuario;
