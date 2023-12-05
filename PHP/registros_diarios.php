@@ -21,6 +21,8 @@ $result = $mysqli->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Awos/CSS/Registros_dia.css">
+    <link rel="shortcut icon" href="/Awos/icono.ico">
+
     <title>Tabla de Registros</title>
 </head>
 <body>

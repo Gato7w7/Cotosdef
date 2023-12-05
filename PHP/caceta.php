@@ -41,28 +41,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["foto"]["name"])) {
     $result = $conn->query($query);
 
     if ($result) {
-        echo "Registro creado correctamente.";
+        echo '<script>alert("Registro guardado exitosamente");window.location.href="/Awos/PHP/caceta.php";</script>"+';
         // Puedes realizar otras acciones aquí si es necesario
     } else {
         echo "Error al cargar el registro: " . $conn->error;
     }
 
 }
-$pins = $_POST['pin'];
-    $busqe = "SELECT Nombre from contactos WHERE Pin = '$pins';";
+$pins = isset($_POST['pin']) ? $_POST['pin'] : '';
+$busqe = "SELECT Nombre from contactos WHERE Pin = '$pins';";
+// Resto del código...
+
     
     $salida= $conn->query($busqe);
     
     $rows = $salida -> fetch_assoc();
-    if(isset($rows['Nombre'])){
-        $nom =$rows['Nombre'];
-        echo ' <script>
-        function cambiaValores() {
-        document.getElementById("nombre_contacto").value = "'.$nom.'";
-
-    }
+    if (isset($rows['Nombre'])) {
+        $nom = $rows['Nombre'];
+        echo '<script>
+            function cambiaValores() {
+                document.getElementById("nombre_contacto").value = "' . $nom . '";
+                // Almacena el valor en el almacenamiento local del navegador
+                localStorage.setItem("nombreContacto", "' . $nom . '");
+            }
+    
+            // Recupera el valor del almacenamiento local al cargar la página
+            window.onload = function () {
+                var nombreContactoGuardado = localStorage.getItem("nombreContacto");
+                if (nombreContactoGuardado) {
+                    document.getElementById("nombre_contacto").value = nombreContactoGuardado;
+                }
+            }
         </script>';
     }
+    
+    
     $conn ->close();
 ?>
 <!DOCTYPE html>
@@ -70,7 +83,9 @@ $pins = $_POST['pin'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Awos/CSS/.css">
+    <link rel="stylesheet" href="/Awos/CSS/caceta.css">
+    <link rel="shortcut icon" href="/Awos/icono.ico">
+
     <title>caceta</title>
 </head>
 <body>

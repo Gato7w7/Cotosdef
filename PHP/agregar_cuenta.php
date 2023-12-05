@@ -38,6 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 <head>
 <link rel="stylesheet" href="../CSS/agr_cue.css"></head>
+<link rel="shortcut icon" href="/Awos/icono.ico">
+
 <body>
 <a href="/Awos/PHP/admin.php" class="btn-regresar">Regresar</a>
     <div class="container">

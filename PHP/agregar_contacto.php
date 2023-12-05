@@ -14,20 +14,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tele = $_POST['numero'];
     $ses = $_SESSION['ID'];
 
-    if ($mysqli->connect_error) {
-        die("Error de conexión: " . $mysqli->connect_error);
-    }
+    $queraso = "SELECT NumCasa FROM residente WHERE NumCasa = '$ses'";
+    $resultQueraso = $mysqli->query($queraso);
+
+    if ($resultQueraso) {
+        // Verificar si se obtuvo algún resultado
+        if ($resultQueraso->num_rows > 0) {
+            echo "No se encontró el número de casa. Valor de \$_SESSION['ID']: {$_SESSION['ID']}";
+
+
+        } else {
+            $row = $resultQueraso->fetch_assoc();
+            // Obtener el valor de NumCasa
+            $numCasa = $row['NumCasa'];
     
-    // Crear la consulta SQL de inserción
-    $query = "INSERT INTO contactos (Nombre, Apellido, Telefono) VALUES ('$nom', '$ape', '$tele')";
+            // Ahora puedes utilizar $numCasa en tu consulta INSERT
+            $query = "INSERT INTO contactos (Nombre, Apellido, Telefono, Residente_ID) VALUES ('$nom', '$ape', '$tele', '$numCasa')";
+            $mysqli->query($query);
+            
+            // Resto del código...
+            echo '<script>alert("Contacto agregado exitosamente");window.location.href="/Awos/PHP/contactos_residente.php";</script>';
 
-    // Ejecutar la consulta de inserción
-    $result = $mysqli->query($query);
-
-    if ($result) {
-        echo '<script>alert("Contacto agregado exitosamente");window.location.href="/Awos/PHP/contactos_residente.php";</script>';
+        }
     } else {
-        echo "Error al agregar contacto: " . $mysqli->error;
+        echo "Error en la consulta: " . $mysqli->error;
     }
 
     // Cerrar la conexión a la base de datos

@@ -22,8 +22,10 @@
 
     if (isset($_POST['eliminar_registro'])) {
         $id_a_eliminar = $_POST['id_eliminar']; // El ID del registro a eliminar
-        $eliminar_query = "DELETE FROM residente WHERE NumCasa = $id_a_eliminar";
+        $eliminar_query = "DELETE FROM contactos where Residente_ID = $id_a_eliminar";
         if ($mysqli->query($eliminar_query)) {
+            $query2 = "DELETE FROM residente where NumCasa = $id_a_eliminar";
+            $mysqli->query($query2);
             echo '<script>alert("Residente eliminado exitosamente");window.location.href="/Awos/PHP/admin.php";</script>';
         } else {
             echo "Error al eliminar el registro: " . $mysqli->error;

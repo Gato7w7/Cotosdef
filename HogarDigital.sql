@@ -103,6 +103,8 @@ CREATE TABLE IF NOT EXISTS `registros` (
   `Foto` longblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- Volcando datos para la tabla hogardigital.registros: ~0 rows (aproximadamente)
+
 -- Volcando estructura para tabla hogardigital.residente
 CREATE TABLE IF NOT EXISTS `residente` (
   `NumCasa` char(4) NOT NULL,
@@ -114,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `residente` (
   PRIMARY KEY (`NumCasa`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla hogardigital.residente: ~5 rows (aproximadamente)
+-- Volcando datos para la tabla hogardigital.residente: ~6 rows (aproximadamente)
 INSERT INTO `residente` (`NumCasa`, `Nombre_R`, `Apellido_R`, `Telefono`, `Usuario`, `Contraseña`) VALUES
 	('1', 'Koke', 'Villa', '4491871833', 'Koke', '123'),
 	('2', 'Jose', 'Lope', '4497851265', 'jo', '124'),

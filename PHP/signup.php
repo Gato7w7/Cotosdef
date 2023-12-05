@@ -19,11 +19,15 @@ $result = $conn->query($sql);
 
 $sqlres = "SELECT NumCasa from residente where Usuario = '$usuario' AND Contraseña = '$contraseña';";
 $resres = $conn->query($sqlres);
+if ($resres){
+    $fila = $resres -> fetch_assoc();
+    $sesion = $fila['ID'];
+}
 
 if ($result->num_rows > 0) {
     session_start();
     $_SESSION['Sesion'] = $usuario;
-    $_SESSION['ID'] = $resres;
+    $_SESSION['ID'] = $sesion;
     $_SESSION['Contrasena'] = $contraseña;
     header("Location: ../PHP/contactos_residente.php");
 } else {
